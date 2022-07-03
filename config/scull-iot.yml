@@ -1,0 +1,15 @@
+http:
+  routers:
+    scull-iot:
+      entryPoints: 
+        - http
+        - https
+      service: service-scull-iot
+      rule: Host(`scull.home.popov.by`) 
+      # tls:
+      #   certResolver: letsEncrypt
+  services:
+    service-scull-iot:
+      loadBalancer:
+        servers:
+          - url: http://192.168.88.200

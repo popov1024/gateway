@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  traefik:
+    image: traefik:2.8
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+      - "--providers.file.directory=/config"
+      - "--providers.file.watch=true"
+    port:
+      - 80:80
+      - 443:443
+    volumes:
+      - .\config:\config

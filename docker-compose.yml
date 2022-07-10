@@ -7,13 +7,16 @@ services:
       - "--api.dashboard=true"
       - "--api.insecure=true"
       - "--entrypoints.http.address=:80"
+      - "--entrypoints.http.http.redirections.entryPoint.to=https"
+      - "--entrypoints.http.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.http.http.redirections.entrypoint.permanent=true"
       - "--entrypoints.https.address=:443"
       - "--providers.file.directory=/config"
       - "--providers.file.watch=true"
-      - --certificatesResolvers.letsEncrypt.acme.email=a@popov.by
-      - --certificatesResolvers.letsEncrypt.acme.storage=/data/acme.json
-      - --certificatesResolvers.letsEncrypt.acme.tlschallenge=true
-      - --certificatesResolvers.letsEncrypt.acme.httpChallenge.entryPoint=http
+      - "--certificatesResolvers.letsEncrypt.acme.email=a@popov.by"
+      - "--certificatesResolvers.letsEncrypt.acme.storage=/data/acme.json"
+      - "--certificatesResolvers.letsEncrypt.acme.tlschallenge=true"
+      - "--certificatesResolvers.letsEncrypt.acme.httpChallenge.entryPoint=http"
     ports:
       - 80:80
       - 443:443

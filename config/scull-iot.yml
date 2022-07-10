@@ -6,8 +6,8 @@ http:
         - https
       service: service-scull-iot
       rule: Host(`scull.home.popov.by`) 
-      # tls:
-      #   certResolver: letsEncrypt
+      tls:
+        certResolver: letsEncrypt
   services:
     service-scull-iot:
       loadBalancer:

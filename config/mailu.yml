@@ -20,7 +20,5 @@ http:
   services:
     service-mailu:
       loadBalancer:
-        proxyProtocol:
-          - version: 2
         servers:
           - url: http://192.168.88.199

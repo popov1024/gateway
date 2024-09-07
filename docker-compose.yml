@@ -18,9 +18,14 @@ services:
       - "--certificatesResolvers.letsEncrypt.acme.tlschallenge=true"
       - "--certificatesResolvers.letsEncrypt.acme.httpChallenge.entryPoint=http"
     ports:
-      - 80:80
-      - 443:443
-      - 8001:8080
+      - "25:25"
+      - "80:80"
+      - "443:443"
+      - "465:465"
+      - "993:993"
+      - "995:995"
+      - "4190:4190"
+      - "8001:8080"
     volumes:
       - ./config:/config
       - ./data:/data

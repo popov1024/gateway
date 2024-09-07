@@ -1,0 +1,26 @@
+http:
+  routers:
+    mailu-http:
+      entryPoints: 
+        - http
+        - https
+      service: service-mailu
+      rule: Host(`mail.popov.by`)
+      tls:
+        certResolver: letsEncrypt
+    mailu-smtp:
+      entryPoints: 
+        - smtp
+        - imaps
+        - pop3s
+        - sieve
+      service: service-mailu
+      rule: HostSNI('*')
+
+  services:
+    service-mailu:
+      loadBalancer:
+        proxyProrocol:
+          - version: 2
+        servers:
+          - url: http://192.168.88.199
